@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 
 // Import Routes
 const authRoute = require("./routes/auth");
+const privateRoute = require('./routes/privateRoute');
 
 dotenv.config();
 
@@ -26,5 +27,6 @@ app.use(bodyParser.json());
 
 // Route Middleware
 app.use("/api/user", authRoute);
+app.use("/api/", privateRoute);
 
 app.listen(3001, () => console.log("Server is Up and Running"));
